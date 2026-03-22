@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Outfit', 'Inter', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-[#030712] text-slate-200 antialiased;
+    scroll-behavior: smooth;
+    background-image: radial-gradient(circle at 50% -20%, #1e3a8a 0%, transparent 40%);
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.1)];
+  }
+  .glass-card {
+    @apply bg-gradient-to-br from-white/[0.07] to-white/[0.01] backdrop-blur-lg border border-white/[0.08] shadow-2xl;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-emerald-400;
+  }
+  .text-gradient-hover {
+    @apply hover:from-blue-300 hover:via-indigo-300 hover:to-emerald-300 transition-all duration-300;
+  }
+}
