@@ -3,64 +3,58 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
 import { Link } from 'react-scroll';
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { type: "spring", stiffness: 100, damping: 20 } 
+  }
+};
+
 export default function Hero() {
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
-      {/* Animated Abstract Background Shapes */}
-      <motion.div 
-        animate={{ 
-          scale: [1, 1.2, 1], 
-          rotate: [0, 90, 0],
-          opacity: [0.3, 0.5, 0.3] 
-        }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        className="absolute top-[10%] left-[10%] w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px] -z-10 mix-blend-screen" 
-      />
-      <motion.div 
-        animate={{ 
-          scale: [1, 1.5, 1], 
-          rotate: [0, -90, 0],
-          opacity: [0.2, 0.4, 0.2] 
-        }}
-        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-        className="absolute bottom-[10%] right-[10%] w-[600px] h-[600px] bg-indigo-600/20 rounded-full blur-[150px] -z-10 mix-blend-screen" 
-      />
-      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-12 pb-20 relative z-10">
         <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           animate={{ opacity: 1, y: 0 }}
-           transition={{ duration: 0.8, ease: "easeOut" }}
+           variants={containerVariants}
+           initial="hidden"
+           animate="visible"
         >
           <motion.div 
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass border border-white/10 text-slate-300 text-sm font-medium mb-8"
+            variants={itemVariants}
+            className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass border border-white/10 text-slate-300 text-sm font-medium mb-8 shadow-sm"
           >
-             <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-            </span>
+             <span className="relative flex h-2 w-2 rounded-full bg-emerald-500"></span>
             Available for new opportunities
           </motion.div>
 
-          <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-6 text-white drop-shadow-2xl">
+          <motion.h1 variants={itemVariants} className="text-6xl md:text-8xl font-black tracking-tighter mb-6 text-white drop-shadow-lg">
             Software <span className="text-gradient">Engineer</span>
-          </h1>
-          <p className="mt-6 text-lg md:text-2xl text-slate-400 max-w-3xl mx-auto mb-12 font-light leading-relaxed">
+          </motion.h1>
+          <motion.p variants={itemVariants} className="mt-6 text-base md:text-xl text-slate-400 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
             I craft immersive, high-performance web experiences bridging the gap between exceptional design and robust engineering.
-          </p>
+          </motion.p>
           
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-16">
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-16">
             <Link
               to="projects"
               smooth={true}
               duration={500}
               offset={-100}
-              className="group relative px-8 py-4 rounded-full bg-white text-slate-950 font-bold overflow-hidden cursor-pointer shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:scale-105 transition-all"
+              className="group relative px-8 py-4 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold cursor-pointer transition-colors shadow-lg"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-200 to-indigo-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <span className="relative flex items-center justify-center">
                 Explore Work
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -71,34 +65,29 @@ export default function Hero() {
               smooth={true}
               duration={500}
               offset={-100}
-              className="px-8 py-4 rounded-full glass hover:bg-white/10 text-white font-medium flex items-center transition-all hover:border-white/20 hover:scale-105 cursor-pointer"
+              className="px-8 py-4 rounded-full glass hover:bg-white/10 text-white font-medium flex items-center transition-colors cursor-pointer"
             >
               Get In Touch
             </Link>
-          </div>
+          </motion.div>
 
-          <div className="flex justify-center gap-6">
+          <motion.div variants={itemVariants} className="flex justify-center gap-6 mt-4">
             {[
               { icon: Github, href: 'https://github.com' },
               { icon: Linkedin, href: 'https://linkedin.com' },
               { icon: Mail, href: 'mailto:hello@example.com' }
             ].map((social, index) => (
-              <motion.a
+              <a
                 key={index}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-14 h-14 rounded-full glass flex items-center justify-center text-slate-400 hover:text-white hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all"
-                whileHover={{ scale: 1.1, y: -4 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 + index * 0.1 }}
+                className="w-14 h-14 rounded-full glass flex items-center justify-center text-slate-400 hover:text-white hover:border-blue-500/30 hover:bg-blue-500/10 transition-colors"
               >
                 <social.icon className="w-6 h-6" />
-              </motion.a>
+              </a>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
