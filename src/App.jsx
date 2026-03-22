@@ -22,7 +22,7 @@ function App() {
       
       <footer className="py-8 border-t border-white/5 text-center px-4 relative z-10 bg-slate-950/20 backdrop-blur-md">
         <p className="text-slate-500 text-sm">
-          © {new Date().getFullYear()} John Doe. Built with React & Tailwind CSS.
+          © {new Date().getFullYear()} Shreyash Ravikant Dhomne. Built with React & Tailwind CSS.
         </p>
       </footer>
     </div>

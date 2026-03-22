@@ -3,53 +3,56 @@ import { motion } from 'framer-motion';
 
 const skills = [
   {
-    category: "Frontend Excellence",
-    items: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Three.js"],
+    category: "Languages",
+    items: ["Java", "JavaScript", "SQL"],
   },
   {
-    category: "Architecture & Rules",
-    items: ["Node.js", "REST APIs", "GraphQL", "Git Workflow", "CI/CD", "AWS Basics"],
+    category: "Frontend",
+    items: ["React.js", "Tailwind CSS", "HTML5", "CSS3"],
   },
   {
-    category: "Design & UX Tools",
-    items: ["Figma Design", "Prototyping", "Design Systems", "A11y Standards", "Performance"],
+    category: "Backend",
+    items: ["Spring Boot", "Spring Data JPA", "REST API"],
+  },
+  {
+    category: "Database",
+    items: ["MySQL", "PostgreSQL"],
+  },
+  {
+    category: "Tools",
+    items: ["Git", "Docker", "Postman", "Maven"],
   }
 ];
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-white/[0.01] border-y border-white/5"></div>
-      
+    <section id="skills" className="section-spacing relative overflow-hidden bg-white/[0.01]">
       <motion.div 
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
       >
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">Technical <span className="text-gradient">Arsenal</span></h2>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto rounded-full shadow-sm"></div>
-          <p className="text-slate-400 mt-6 max-w-2xl mx-auto text-lg font-light">
-            A curated overview of the modern technologies and architectural practices I use to engineer premium digital experiences.
-          </p>
+          <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight text-white">Technical <span className="text-gradient">Arsenal</span></h2>
+          <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-6">
           {skills.map((skillGroup, groupIndex) => (
             <div
               key={groupIndex}
-              className="glass-card p-10 rounded-[2rem] transition-all duration-300 hover:border-blue-500/30 hover:-translate-y-2 hover:shadow-xl group cursor-default"
+              className="glass p-8 rounded-3xl border-white/5 flex flex-col items-center text-center transition-all duration-300 hover:border-white/10 hover:-translate-y-1"
             >
-              <h3 className="text-2xl font-bold text-white mb-8 tracking-tight group-hover:text-blue-300 transition-colors">
+              <h3 className="text-sm font-black text-slate-500 uppercase tracking-widest mb-6 border-b border-white/5 pb-2 w-full">
                 {skillGroup.category}
               </h3>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap justify-center gap-2">
                 {skillGroup.items.map((skill, index) => (
                   <span
                     key={index}
-                    className="px-3 py-2 glass text-slate-300 rounded-lg text-sm font-medium border border-white/5 hover:bg-white/10 hover:border-white/20 hover:text-white transition-colors"
+                    className="px-3 py-1.5 bg-white/[0.03] text-slate-300 rounded-lg text-xs font-medium border border-white/5"
                   >
                     {skill}
                   </span>
