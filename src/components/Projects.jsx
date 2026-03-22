@@ -1,38 +1,38 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Code, Star } from 'lucide-react';
+import { ExternalLink, Github, Star } from 'lucide-react';
 
 const projects = [
   {
     title: "Job Application Portal (JobHunt&Co)",
-    description: "A full-stack job portal built with React and Java Spring Boot. Features include user authentication via cookies, protected routing, and seamless REST API integration for managing applications and job listings.",
+    description: "A complete job application platform with authentication and protected routes. Features include cookie-based sessions, comprehensive REST API integration, and a production-ready React frontend.",
     image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&q=80&w=1200",
-    tags: ["React.js", "Spring Boot", "REST API", "Cookies", "MySQL"],
+    tags: ["React.js", "Spring Boot", "MySQL", "Authentication", "Tailwind"],
     github: "https://github.com/shreyashdhomne",
     live: "https://job-application-sigma-virid.vercel.app/",
     featured: true
   },
   {
     title: "Student Management API",
-    description: "Robust RESTful backend designed to manage student records with full CRUD capabilities. Built using Spring Data JPA for persistent storage and optimized database operations.",
+    description: "Professional RESTful service designed to manage academic records with full CRUD operations. Optimized for scalability using Spring Data JPA and MySQL persistence.",
     image: "/student_management_api_mockup_1774210832915.png",
-    tags: ["Java", "Spring Boot", "MySQL", "JPA"],
+    tags: ["Java", "Spring Boot", "MySQL", "Spring Data JPA", "REST API"],
     github: "https://github.com/shreyashdhomne",
     live: "#",
     featured: false
   },
   {
     title: "Orrencia Royale",
-    description: "Premium hotel landing page with high-quality visual experience, background video hero, and responsive booking layouts using Bootstrap.",
+    description: "Premium hotel management frontend with responsive layouts, immersive video hero sections, and high-quality UI branding for a luxury experience.",
     image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=800",
-    tags: ["HTML", "CSS", "Bootstrap", "JavaScript"],
+    tags: ["HTML5", "CSS3", "Bootstrap", "JavaScript"],
     github: "https://github.com/shreyashdhomne",
     live: "https://responsive-hotel-booking-site.vercel.app/",
     featured: false
   },
   {
     title: "To-Do List App",
-    description: "Modern productivity tool with persistent storage, dynamic task management, and smooth DOM-driven user interactions.",
+    description: "Sleek productivity tool with modular JavaScript and persistent localStorage, delivering a seamless task management experience.",
     image: "https://images.unsplash.com/photo-1540350394557-8d14678e7f91?auto=format&fit=crop&q=80&w=800",
     tags: ["JavaScript", "HTML5", "CSS3", "Vercel"],
     github: "https://github.com/shreyashdhomne",
@@ -63,17 +63,19 @@ export default function Projects() {
     <section id="projects" className="section-spacing relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-20"
+          className="text-center mb-24"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-blue-500/20 text-blue-400 text-xs font-bold mb-6 tracking-widest uppercase">
-            <Star className="w-3 h-3" /> Selected Work
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-blue-500/20 text-blue-400 text-[10px] font-black tracking-[0.2em] mb-8 uppercase">
+            <Star className="w-3 h-3 fill-blue-500/20" /> Selected Works
           </div>
-          <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight text-white">Featured <span className="text-gradient">Projects</span></h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto rounded-full"></div>
+          <h2 className="text-5xl md:text-7xl font-black mb-8 tracking-tight text-white leading-tight">
+            Featured <span className="text-gradient">Projects</span>
+          </h2>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto rounded-full shadow-[0_0_20px_rgba(59,130,246,0.3)]"></div>
         </motion.div>
 
         <motion.div 
@@ -81,58 +83,57 @@ export default function Projects() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
         >
           {projects.map((project, index) => (
             <motion.div
               key={index}
               variants={cardVariants}
-              className={`group relative glass-card rounded-3xl overflow-hidden flex flex-col border border-white/5 transition-all duration-300 hover:shadow-blue-900/10 ${project.featured ? 'md:col-span-2 lg:col-span-3 lg:flex-row' : ''}`}
+              className={`group relative glass-card rounded-[2.5rem] overflow-hidden flex flex-col border border-white/5 transition-all duration-500 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-900/10 ${project.featured ? 'md:col-span-2 lg:col-span-3 lg:flex-row' : ''}`}
             >
-              <div className={`relative overflow-hidden bg-slate-900 ${project.featured ? 'lg:w-[55%] h-64 lg:h-auto' : 'h-56'}`}>
+              <div className={`relative overflow-hidden bg-slate-900 ${project.featured ? 'lg:w-[58%] h-72 lg:h-auto' : 'h-64'}`}>
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-full object-cover opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700"
+                  className="w-full h-full object-cover opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
                 
                 {/* Hover Reveal Overlay UI Elements */}
-                <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-[#030712]/90 via-slate-900/40 to-transparent">
-                  <div className="flex gap-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <div className="absolute inset-0 z-20 flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent">
+                  <div className="flex gap-4 transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 ease-out">
                     {project.live !== "#" && (
-                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="flex-1 glass bg-white/10 hover:bg-emerald-500 hover:border-emerald-400 text-white py-3 rounded-xl flex items-center justify-center font-bold transition-all shadow-lg hover:shadow-[0_0_20px_rgba(16,185,129,0.5)] text-xs">
+                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="flex-1 glass bg-white/10 hover:bg-white text-slate-950 hover:text-slate-950 rounded-2xl py-4 flex items-center justify-center font-black transition-all shadow-2xl text-[10px] uppercase tracking-widest bg-white">
                       <ExternalLink className="w-4 h-4 mr-2" />
                       Live Preview
                     </a>
                     )}
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex-1 glass bg-white/10 hover:bg-slate-800 hover:border-slate-600 text-white py-3 rounded-xl flex items-center justify-center font-bold transition-all shadow-lg text-xs">
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex-1 glass bg-white/5 hover:bg-slate-800 text-white rounded-2xl py-4 flex items-center justify-center font-black transition-all shadow-2xl text-[10px] uppercase tracking-widest border border-white/10">
                       <Github className="w-4 h-4 mr-2" />
-                      Source Code
+                      Github Code
                     </a>
                   </div>
                 </div>
               </div>
 
-              <div className={`p-8 flex flex-col ${project.featured ? 'lg:w-[45%] justify-center' : 'flex-grow'}`}>
-                <div className="flex items-center gap-3 mb-4">
-                  <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
-                    {project.title}
-                  </h3>
+              <div className={`p-10 flex flex-col ${project.featured ? 'lg:w-[42%] justify-center' : 'flex-grow'}`}>
+                <div className="flex items-center gap-4 mb-6">
                   {project.featured && (
-                    <span className="px-2 py-0.5 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] uppercase font-black tracking-widest rounded-md">
-                      Featured
+                    <span className="px-3 py-1 bg-blue-600/10 border border-blue-500/20 text-blue-400 text-[10px] uppercase font-black tracking-widest rounded-lg">
+                      Featured Work
                     </span>
                   )}
+                  <h3 className="text-2xl font-black text-white group-hover:text-blue-400 transition-colors leading-tight">
+                    {project.title}
+                  </h3>
                 </div>
 
-                <p className="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">
+                <p className="text-slate-400 text-sm leading-relaxed mb-10 flex-grow font-light">
                   {project.description}
                 </p>
                 
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag, i) => (
-                    <span key={i} className="px-2 py-1 bg-white/[0.03] border border-white/5 text-slate-400 text-[10px] font-medium rounded-md group-hover:border-white/10 group-hover:text-slate-200 transition-colors">
+                    <span key={i} className="px-3 py-1.5 bg-white/[0.03] border border-white/5 text-slate-500 text-[10px] font-black uppercase tracking-widest rounded-lg group-hover:border-blue-500/20 group-hover:text-blue-300 transition-all">
                       {tag}
                     </span>
                   ))}

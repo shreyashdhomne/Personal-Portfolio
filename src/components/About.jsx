@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export default function About() {
   return (
     <section id="about" className="section-spacing relative overflow-hidden">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -21,9 +21,14 @@ export default function About() {
             <div className="relative group">
               <div className="absolute inset-0 bg-blue-600 rounded-[2rem] blur-[60px] opacity-10"></div>
               <div className="glass-card p-10 rounded-[2.5rem] relative z-10 border-white/5">
-                <h3 className="text-2xl font-bold mb-6 text-white tracking-tight">System Architect</h3>
+                <h3 className="text-2xl font-bold mb-6 text-white tracking-tight">Who I am</h3>
                 <p className="text-slate-400 leading-relaxed md:text-lg mb-6 font-light">
-                  I am a <span className="text-white">Java Full Stack Developer</span> with a strong foundation in building both frontend and backend web applications.
+
+                  I am a Java Full Stack Developer with a strong foundation in building both frontend and backend web applications.
+
+                  I work with React to create responsive user interfaces and use Java and Spring Boot to develop RESTful APIs and backend systems.
+
+                  I focus on building real-world applications and continuously improving my development skills.
                 </p>
                 <p className="text-slate-400 leading-relaxed md:text-lg mb-8 font-light">
                   I work with <span className="text-white">React</span> to create responsive user interfaces and use <span className="text-white">Java & Spring Boot</span> to develop RESTful APIs and robust backend systems.
@@ -49,8 +54,8 @@ export default function About() {
               { title: "Frontend Engineering", desc: "Building responsive and dynamic user interfaces with React and Tailwind CSS.", icon: "🎨" },
               { title: "Full Stack Sync", desc: "Seamlessly connecting RESTful backends with modern frontend frameworks.", icon: "🔗" }
             ].map((item, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="group p-6 glass rounded-2xl border-white/5 hover:border-white/10 hover:bg-white/[0.04] transition-all flex gap-6 items-center"
               >
                 <div className="text-3xl w-14 h-14 flex items-center justify-center rounded-xl bg-white/5 shadow-inner">

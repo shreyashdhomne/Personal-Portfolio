@@ -14,7 +14,7 @@
 
 @layer utilities {
   .section-spacing {
-    @apply py-32 md:py-40;
+    @apply py-40 md:py-52;
   }
   .glass {
     @apply bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.2)];
